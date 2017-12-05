@@ -20,8 +20,8 @@ setup(name='kaapi',
         ### Required to build documentation
         # "Sphinx >= 1.0",
         ### Required for testing
-        # "nose",
-        # "coverage",
+         "nose",
+         "coverage",
         ### Required to function
         'cement',
         ],
