@@ -1,4 +1,5 @@
 """Kaapi main application entry point."""
+import os
 
 from cement.core.foundation import CementApp
 from cement.utils.misc import init_defaults
@@ -18,7 +19,6 @@ defaults['kaapi']['plugin_dir'] = '/var/lib/kaapi/plugins'
 # External templates (generally, do not ship with application code)
 defaults['kaapi']['template_dir'] = '/var/lib/kaapi/templates'
 
-
 class KaapiApp(CementApp):
     class Meta:
         label = 'kaapi'
@@ -33,8 +33,12 @@ class KaapiApp(CementApp):
         # Internal templates (ship with application code)
         template_module = 'kaapi.cli.templates'
 
+        # Adding extensions, using mustache for simplicity
+        #extensions = ['mustache']
+
         # call sys.exit() when app.close() is called
         exit_on_close = True
+
 
 
 class KaapiTestApp(KaapiApp):
@@ -57,6 +61,13 @@ app = KaapiApp()
 def main():
     with app:
         try:
+
+            # Disable not root access here itself
+            if not os.geteuid() == 0:
+                print("\nroot or sudo access required \n for running this program \n")
+                # Consider this is as an uncaught error and exist with code 1
+                app.close(1)
+            
             app.run()
         
         except exc.KaapiError as e:
