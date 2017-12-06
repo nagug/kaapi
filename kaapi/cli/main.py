@@ -34,7 +34,7 @@ class KaapiApp(CementApp):
         template_module = 'kaapi.cli.templates'
 
         # Adding extensions, using mustache for simplicity
-        #extensions = ['mustache']
+        extensions = ['mustache']
 
         # call sys.exit() when app.close() is called
         exit_on_close = True

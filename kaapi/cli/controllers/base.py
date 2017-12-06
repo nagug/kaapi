@@ -1,15 +1,11 @@
 """Kaapi base controller."""
 
-from cement.ext.ext_argparse import ArgparseController, expose
+from cement.core.controller import CementBaseController, expose
+from kaapi.core.variables import KaapiVariables
 
-VERSION = '0.1b'
+BANNER = KaapiVariables.BANNER
 
-BANNER = """
-Kaapi v%s 
-Copyright (c) 2017 Nimidam.com
-""" % VERSION
-
-class KaapiBaseController(ArgparseController):
+class KaapiBaseController(CementBaseController):
     class Meta:
         label = 'base'
         description = 'Kaapi is a CLI based LNMP installer for debian based systems.'
