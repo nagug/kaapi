@@ -9,8 +9,8 @@ class KaapiVariables():
     |    \ / _` |/ _` | '_ \| |
     | |\  \ (_| | (_| | |_) | |
     \_| \_/\__,_|\__,_| .__/|_|
-                    | |      
-                    |_|      
+                      | |      
+                      |_|      
     
     Version %s beta | (c) 2017
     N@GU | Nimidam.com
