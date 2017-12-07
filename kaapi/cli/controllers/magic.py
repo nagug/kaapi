@@ -1,4 +1,4 @@
-"""Kaapi stack controller."""
+"""Kaapi magic controller."""
 
 #from cement.ext.ext_argparse import ArgparseController, expose
 from cement.core.controller import CementBaseController, expose
