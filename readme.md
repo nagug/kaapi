@@ -102,7 +102,7 @@ The above command triggers customisation mode. since there is a --add flag, main
 
 ## FAQs
 
-1. What is Kaapi means?
-Kaapi is South Indian variation of coffee. For some para-normal reason, it has helped me whenever, I had Migraines. No medical explanation yet.
+1. What does Kaapi means?
+Kaapi is South Indian variation of [coffee](https://en.wikipedia.org/wiki/Indian_filter_coffee). For some para-normal reason, it has helped me whenever, I had Migraines. No medical explanation yet.
 2. Why this project?
 Bored of typing too many commands, everytime I setup a server. Also since my day job does not let me code, these kind of projects keeps me engaged in the night.
