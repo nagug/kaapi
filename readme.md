@@ -1,3 +1,5 @@
+[![TeamCity (simple build status)](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)]() [![Coveralls bitbucket branch](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)]() [![Custome (Platform status)](https://img.shields.io/badge/Platform-Debian%208%2C9-brightgreen.svg)]() 
+
 # Kaapi nginx installer (Not ready for use - work in progress)
 
 Kaapi is a python based custom nginx installer for debian systems focussed on having all security & performance module integrated. Unlike other systems, kaapi builds the nginx from source. 
