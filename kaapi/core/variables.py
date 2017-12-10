@@ -17,5 +17,7 @@ class KaapiVariables():
     \r
     """ %kaapi_version
 
+    kaapi_install_list = ['pagespeed','naxsi','tlspatch','libressl','brotli','ngxheaders']
+
     def __init__(self):
         pass

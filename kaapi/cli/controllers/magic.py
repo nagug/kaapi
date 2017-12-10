@@ -2,6 +2,7 @@
 
 #from cement.ext.ext_argparse import ArgparseController, expose
 from cement.core.controller import CementBaseController, expose
+from kaapi.core.variables import KaapiVariables
 from kaapi.core.temp import KaapiInstaller
 
 """
@@ -65,29 +66,27 @@ class KaapiMagicController(CementBaseController):
         arglist = {k: v for k, v in arglist.items() if v is True}
         addlist = []
         removelist = []
-        print ("full list is", arglist.keys())
+        finallist= []
         if (len(arglist.keys()) == 0):
-            print ("Only magic")
+            self.app.log.info('Only Magic')
+            finallist = KaapiVariables.kaapi_install_list
+            self.app.log.info(finallist)
         else:
-            if ('lite' in arglist.keys()) and (len(arglist.keys()) > 1):
-                print ("Error: --lite cannot be mixed with other parameters")
-            elif ('lite' in arglist.keys()):
-                print ("Selected is only lite")
-            else:
-                for k in arglist.keys():
-                    keyword,feature = k.split('_')
-                    if keyword == 'no':
-                        removelist.append(feature)
-                    else:
-                        addlist.append(feature)
-                commonlist = list(set(addlist).intersection(removelist))
-                addlist = [x for x in addlist if x not in commonlist]
-                removelist = [x for x in removelist if x not in commonlist]
-                if(len(addlist)>0):
-                    print "Ignores all remove list & installs Lite + ", addlist
-                else :
-                    print "install fulllist excluding ", removelist        
-        
+            for k in arglist.keys():
+                keyword,feature = k.split('_')
+                if keyword == 'no':
+                    removelist.append(feature)
+                else:
+                    addlist.append(feature)
+            commonlist = list(set(addlist).intersection(removelist))
+            addlist = [x for x in addlist if x not in commonlist]
+            removelist = [x for x in removelist if x not in commonlist]
+            if(len(addlist)>0):
+                finallist = addlist
+                self.app.log.info(finallist)
+            else :
+                finallist = [x for x in KaapiVariables.kaapi_install_list if x not in removelist]
+                self.app.log.info(finallist)
 
        # else:
        #     print("builds and install nginx based stack with all modeules")
